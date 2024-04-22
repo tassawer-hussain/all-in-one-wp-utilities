@@ -1,0 +1,25 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.aiowpu-manager .wp-list-table th,
+.aiowpu-manager .wp-list-table td {
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+.aiowpu-manager .dashicons.status {
+	width: auto;
+}
+.aiowpu-manager .dashicons.status:before{
+	background-color: transparent;
+	box-shadow: none;
+	font-size: initial;
+}
+.aiowpu-manager .spinner {
+	background-size: 16px 16px;
+	float: none;
+	width: 16px;
+	height: 16px;
+	margin: 3px 4px;
+}

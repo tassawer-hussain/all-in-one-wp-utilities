@@ -1,0 +1,9 @@
+#preview-image {
+	display: block;
+	width: 100%;
+}
+
+#preview-image img {
+	width: 300px !important;
+	height: auto;
+}

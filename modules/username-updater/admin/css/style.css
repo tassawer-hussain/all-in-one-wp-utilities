@@ -1,0 +1,6 @@
+#user_udate input#submit {
+    margin-top: 15px;
+}
+ul.wp-submenu li a[href="users.php?page=aiowpu-update-username"] {
+    display: none !important;
+}
