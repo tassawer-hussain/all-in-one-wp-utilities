@@ -94,17 +94,22 @@ if ( ! class_exists( 'All_In_One_Wp_Utilities' ) ) {
 		private function load_dependencies() {
 
 			// The class responsible for orchestrating the actions and filters of the core plugin.
-			require_once AIOWPU_PATH . 'core/class-all-in-one-wp-utilities-loader.php';
+			require_once AIOWPU_CORE_PATH . 'class-all-in-one-wp-utilities-loader.php';
 
 			// Include core.
-			require_once AIOWPU_PATH . 'core/aiowpu-api.php';
-			require_once AIOWPU_PATH . 'core/aiowpu-functions.php';
-			require_once AIOWPU_PATH . 'core/aiowpu-helpers.php';
+			require_once AIOWPU_CORE_PATH . 'aiowpu-api.php';
+			require_once AIOWPU_CORE_PATH . 'aiowpu-functions.php';
+			require_once AIOWPU_CORE_PATH . 'aiowpu-helpers.php';
 
 			// Include core classes.
-			require_once AIOWPU_PATH . 'core/class-aiowpu-module.php';
-			require_once AIOWPU_PATH . 'core/class-aiowpu-module-admin.php';
-			require_once AIOWPU_PATH . 'core/class-aiowpu-module-public.php';
+			require_once AIOWPU_CORE_PATH . 'class-aiowpu-module.php';
+			require_once AIOWPU_CORE_PATH . 'class-aiowpu-module-admin.php';
+			require_once AIOWPU_CORE_PATH . 'class-aiowpu-module-public.php';
+
+			// Include 2ByteCode Setting API Library.
+			require_once AIOWPU_CORE_PATH . 'class-aiowpu-default-settings-options.php';
+			require_once AIOWPU_CORE_PATH . 'settings-api/classes/class-b2c-settings-fields-callbacks.php';
+			require_once AIOWPU_CORE_PATH . 'settings-api/class-settings-api-2bc.php';
 
 			// The class responsible for defining all actions that occur in the admin area.
 			require_once AIOWPU_PATH . 'admin/class-all-in-one-wp-utilities-admin.php';
@@ -134,6 +139,12 @@ if ( ! class_exists( 'All_In_One_Wp_Utilities' ) ) {
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 			$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_menu_page' );
+
+			// Create an instance of settings API class.
+			$setting_menu = new Settings_API_2BC( $this->get_plugin_name(), $this->get_version(), 'aiowpu_settings', esc_html__( 'AIOWP Settings', 'all-in-one-wp-utilities' ), esc_html__( 'AIOWP Settings', 'all-in-one-wp-utilities' ) );
+			$this->loader->add_action( 'admin_enqueue_scripts', $setting_menu, 'enqueue_styles' );
+			$this->loader->add_action( 'admin_enqueue_scripts', $setting_menu, 'enqueue_scripts' );
+			$this->loader->add_action( 'admin_menu', $setting_menu, 'b2c_settings_admin_menu' );
 
 		}
 

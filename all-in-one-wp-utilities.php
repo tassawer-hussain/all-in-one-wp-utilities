@@ -37,6 +37,9 @@ define( 'ALL_IN_ONE_WP_UTILITIES_VERSION', '1.0.0' );
 define( 'AIOWPU_URL', plugin_dir_url( __FILE__ ) );
 define( 'AIOWPU_PATH', plugin_dir_path( __FILE__ ) );
 
+define( 'AIOWPU_CORE_URL', plugin_dir_url( __FILE__ ) . 'core/' );
+define( 'AIOWPU_CORE_PATH', plugin_dir_path( __FILE__ ) . 'core/' );
+
 /**
  * Plugin Activation.
  *

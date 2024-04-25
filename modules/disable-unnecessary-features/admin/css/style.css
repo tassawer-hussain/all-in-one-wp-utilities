@@ -1,0 +1,25 @@
+.aiowpu-server-requirements,
+.aiowpu-duf-bulk-actions,
+.aiowpu-duf-estimated-savings {
+    background-color: #f0f6fc;
+}
+.aiowpu-duf-rating-request {
+    background-color: #d4edda;
+}
+
+.aiowpu-server-requirements div {
+    margin-bottom: 20px;
+}
+
+.aiowpu-server-requirements div.badge a {
+	text-decoration: none;
+}
+
+.aiowpu-duf-estimated-savings .form-table th {
+    vertical-align: middle;
+    padding: 0px 10px 0px 0;
+}
+.aiowpu-duf-estimated-savings .form-table td {
+    padding: 10px;
+
+}

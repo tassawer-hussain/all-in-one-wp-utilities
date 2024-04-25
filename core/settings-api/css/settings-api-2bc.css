@@ -1,0 +1,64 @@
+/**
+ * All of the CSS for Setting API included in this file.
+ */
+
+/**
+ * Settings tabs.
+ */
+.b2c-admin-settings.tab {
+	display: none;
+}
+.b2c-admin-settings.tab.tab-active {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.b2c_image_in_settings img {
+	width: 100% !important;
+	height: inherit;
+}
+
+/* Settings -> Login Page -> Hidden Field */
+.is_updated_hidden {
+	display: none;
+}
+
+.b2c_select select {
+	width: 305px;
+}
+
+/**
+ * Settings sections style.
+ */
+/* Default styles */
+.b2c-admin-settings .section_left,
+.b2c-admin-settings .section_right {
+    width: 100%; /* Set both sections to full width by default */
+    margin-top: 20px;
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.b2c-admin-settings .section_left,
+.b2c-admin-settings .section_right > div {
+	padding: 20px; /* Add inner padding */
+}
+
+.b2c-admin-settings .section_right > div {
+	margin: 20px 0;
+}
+
+.b2c-admin-settings .section_right div p {
+    margin: 0 0 15px 0 !important;
+}
+
+/* Media query for screens greater than 768px */
+@media screen and (min-width: 768px) {
+    .b2c-admin-settings .section_left {
+        width: 70%; /* Set width of left section to 75% */
+		margin-right: 10px; /* Add margin between sections */
+    }
+
+    .b2c-admin-settings .section_right {
+        width: 30%; /* Set width of right section to 25% */
+    }
+}
