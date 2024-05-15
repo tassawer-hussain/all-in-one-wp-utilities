@@ -2,8 +2,8 @@
 /**
  * Helpers User Multiple Roles
  *
- * @package    All_In_One_Wp_Utilities/modules/disable-unnecessary-features
- * @subpackage All_In_One_Wp_Utilities/modules/disable-unnecessary-features/helper
+ * @package    All_In_One_Utilities/modules/disable-unnecessary-features
+ * @subpackage All_In_One_Utilities/modules/disable-unnecessary-features/helper
  */
 
 /**
@@ -153,9 +153,9 @@ function aiowpu_display_server_requirements() {
 			</div>
 		</div>
 		<hr>',
-		esc_html__( 'Server Requirements Check', 'all-in-one-wp-utilities' ),
-		esc_html__( 'In simple terms, if both boxes are blue, you\'re good to go.', 'all-in-one-wp-utilities' ),
-		esc_html__( 'However, if one of them is red, it\'s a sign that you might need to upgrade your hosting for better site performance.', 'all-in-one-wp-utilities' ),
+		esc_html__( 'Server Requirements Check', 'all-in-one-utilities' ),
+		esc_html__( 'In simple terms, if both boxes are blue, you\'re good to go.', 'all-in-one-utilities' ),
+		esc_html__( 'However, if one of them is red, it\'s a sign that you might need to upgrade your hosting for better site performance.', 'all-in-one-utilities' ),
 		esc_url( 'https://www.php.net/supported-versions.php' ),
 		esc_attr( aiowpu_php_version_badge() ),
 		esc_html( aiowpu_php_version() ),
@@ -189,8 +189,8 @@ function aiowpu_display_bulk_select_action() {
 			</div>
 		</div>
 		<hr>',
-		esc_html__( 'Check / UnCheck All', 'all-in-one-wp-utilities' ),
-		esc_html__( 'Use these buttons to select/unselect all options with one click.', 'all-in-one-wp-utilities' ),
+		esc_html__( 'Check / UnCheck All', 'all-in-one-utilities' ),
+		esc_html__( 'Use these buttons to select/unselect all options with one click.', 'all-in-one-utilities' ),
 	);
 
 }

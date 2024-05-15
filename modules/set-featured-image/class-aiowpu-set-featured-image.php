@@ -8,8 +8,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules
- * @subpackage All_In_One_Wp_Utilities/modules/set-featured-image
+ * @package    All_In_One_Utilities/modules
+ * @subpackage All_In_One_Utilities/modules/set-featured-image
  */
 
 // If this file is called directly, abort.
@@ -28,8 +28,8 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities/modules
-	 * @subpackage All_In_One_Wp_Utilities/modules/set-featured-image
+	 * @package    All_In_One_Utilities/modules
+	 * @subpackage All_In_One_Utilities/modules/set-featured-image
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
 	class Aiowpu_Set_Featured_Image extends Aiowpu_Module {
@@ -38,8 +38,8 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 		 * Register module
 		 */
 		public function register() {
-			$this->name     = esc_html__( 'Set Featured Image', 'all-in-one-wp-utilities' );
-			$this->desc     = esc_html__( 'Allows you to select a default featured image in the media settings.', 'all-in-one-wp-utilities' );
+			$this->name     = esc_html__( 'Set Featured Image', 'all-in-one-utilities' );
+			$this->desc     = esc_html__( 'Allows you to select a default featured image in the media settings.', 'all-in-one-utilities' );
 			$this->slug     = 'set_featured_image';
 			$this->type     = 'default';
 			$this->category = 'tools';
@@ -48,11 +48,11 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 			$this->enabled  = false;
 			$this->links    = array(
 				array(
-					'name' => esc_html__( 'Set featured settings', 'all-in-one-wp-utilities' ),
+					'name' => esc_html__( 'Settings', 'all-in-one-utilities' ),
 					'url'  => admin_url( sprintf( 'options-media.php#%s', aiowpu_get_page_slug( $this->slug ) ) ),
 				),
 				array(
-					'name'   => esc_html__( 'View documentation', 'all-in-one-wp-utilities' ),
+					'name'   => esc_html__( 'View documentation', 'all-in-one-utilities' ),
 					'url'    => aiowpu_get_setting( 'documentation' ) . '/set-featured-image/',
 					'target' => '_blank',
 				),

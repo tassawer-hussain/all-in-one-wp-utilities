@@ -7,8 +7,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules/set-featured-image
- * @subpackage All_In_One_Wp_Utilities/modules/set-featured-image/admin
+ * @package    All_In_One_Utilities/modules/set-featured-image
+ * @subpackage All_In_One_Utilities/modules/set-featured-image/admin
  */
 
 ?>
@@ -24,18 +24,18 @@
 <a
 	id="dfi-set-dfi"
 	class="button"
-	title="<?php esc_attr_e( 'Select default featured image', 'all-in-one-wp-utilities' ); ?>"
+	title="<?php esc_attr_e( 'Select default featured image', 'all-in-one-utilities' ); ?>"
 	href="#">
 	<span style="margin-top: 3px;" class="dashicons dashicons-format-image"></span>
-	<?php esc_html_e( 'Select default featured image', 'all-in-one-wp-utilities' ); ?>
+	<?php esc_html_e( 'Select default featured image', 'all-in-one-utilities' ); ?>
 </a>
 
 <div style="margin-top:5px;">
 	<a
 		id="dfi-no-fdi"
 		class="<?php echo esc_attr( $rm_btn_class ); ?>"
-		title="<?php esc_attr_e( "Don't use a default featured image", 'all-in-one-wp-utilities' ); ?>"
+		title="<?php esc_attr_e( "Don't use a default featured image", 'all-in-one-utilities' ); ?>"
 		href="#">
-		<?php esc_html_e( "Don't use a default featured image", 'all-in-one-wp-utilities' ); ?>
+		<?php esc_html_e( "Don't use a default featured image", 'all-in-one-utilities' ); ?>
 	</a>
 </div>

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Provide a public-facing view for the plugin
  *
@@ -8,9 +7,10 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities
- * @subpackage All_In_One_Wp_Utilities/public/partials
+ * @package    All_In_One_Utilities
+ * @subpackage All_In_One_Utilities/public/partials
  */
+
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->

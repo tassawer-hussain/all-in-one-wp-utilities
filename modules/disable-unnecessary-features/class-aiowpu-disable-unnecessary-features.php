@@ -8,8 +8,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules
- * @subpackage All_In_One_Wp_Utilities/modules/disable-unnecessary-features
+ * @package    All_In_One_Utilities/modules
+ * @subpackage All_In_One_Utilities/modules/disable-unnecessary-features
  */
 
 // If this file is called directly, abort.
@@ -28,8 +28,8 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities/modules
-	 * @subpackage All_In_One_Wp_Utilities/modules/disable-unnecessary-features
+	 * @package    All_In_One_Utilities/modules
+	 * @subpackage All_In_One_Utilities/modules/disable-unnecessary-features
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
 	class Aiowpu_Disable_Unnecessary_Features extends Aiowpu_Module {
@@ -38,8 +38,8 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 		 * Register module
 		 */
 		public function register() {
-			$this->name     = esc_html__( 'Disable Unnecessary Features', 'all-in-one-wp-utilities' );
-			$this->desc     = esc_html__( 'Allow you to disable all unnecessary WordPress features to speed up your website', 'all-in-one-wp-utilities' );
+			$this->name     = esc_html__( 'Disable Unnecessary Features', 'all-in-one-utilities' );
+			$this->desc     = esc_html__( 'Allow you to disable all unnecessary WordPress features to speed up your website', 'all-in-one-utilities' );
 			$this->slug     = 'disable_unnecessary_features';
 			$this->type     = 'default';
 			$this->category = 'tools';
@@ -48,11 +48,11 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 			$this->enabled  = false;
 			$this->links    = array(
 				array(
-					'name' => esc_html__( 'Settings', 'all-in-one-wp-utilities' ),
+					'name' => esc_html__( 'Settings', 'all-in-one-utilities' ),
 					'url'  => aiowpu_get_page_url( 'settings#aiowpu-disable-unnecessary-features', 'admin' ),
 				),
 				array(
-					'name'   => esc_html__( 'View documentation', 'all-in-one-wp-utilities' ),
+					'name'   => esc_html__( 'View documentation', 'all-in-one-utilities' ),
 					'url'    => aiowpu_get_setting( 'documentation' ) . '/disable-unnecessary-features/',
 					'target' => '_blank',
 				),

@@ -8,8 +8,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules
- * @subpackage All_In_One_Wp_Utilities/modules/disable-unnecessary-features
+ * @package    All_In_One_Utilities/modules
+ * @subpackage All_In_One_Utilities/modules/disable-unnecessary-features
  */
 
 // If this file is called directly, abort.
@@ -28,8 +28,8 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities/modules
-	 * @subpackage All_In_One_Wp_Utilities/modules/disable-unnecessary-features
+	 * @package    All_In_One_Utilities/modules
+	 * @subpackage All_In_One_Utilities/modules/disable-unnecessary-features
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
 	final class Aiowpu_Disable_Unnecessary_Features_Admin extends Aiowpu_Module_Admin {
@@ -94,7 +94,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 		public function admin_enqueue_scripts( $page ) {
 
 			// Below script and style will only needed on the settings page.
-			if ( 'aiowp-utilities_page_aiowpu_settings' !== $page ) {
+			if ( 'all-in-one-utilities_page_aiowpu_settings' !== $page ) {
 				return;
 			}
 
@@ -220,13 +220,13 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 					</div>
 				</div>
 				<hr>',
-				esc_html__( 'Estimated Savings', 'all-in-one-wp-utilities' ),
-				esc_html__( "By activating the chosen features, you've saved this amount thus far.", 'all-in-one-wp-utilities' ),
-				esc_html__( 'File Requests', 'all-in-one-wp-utilities' ),
+				esc_html__( 'Estimated Savings', 'all-in-one-utilities' ),
+				esc_html__( "By activating the chosen features, you've saved this amount thus far.", 'all-in-one-utilities' ),
+				esc_html__( 'File Requests', 'all-in-one-utilities' ),
 				esc_html( $reqs ),
-				esc_html__( 'File Size', 'all-in-one-wp-utilities' ),
+				esc_html__( 'File Size', 'all-in-one-utilities' ),
 				esc_html( $size >= 1024 ? ( number_format( $size / 1024, 1 ) ) . 'Mb' : $size . 'kb' ),
-				esc_html__( 'HTML Tags', 'all-in-one-wp-utilities' ),
+				esc_html__( 'HTML Tags', 'all-in-one-utilities' ),
 				esc_html( $tags ),
 			);
 
@@ -247,10 +247,10 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 					</div>
 				</div>
 				<hr>',
-				esc_html__( 'Love Our Plugin?', 'all-in-one-wp-utilities' ),
-				esc_html__( 'Show your support with a', 'all-in-one-wp-utilities' ),
-				esc_url( 'https://wordpress.org/support/plugin/all-in-one-wp-utilities/reviews?rate=5#new-post' ),
-				esc_html__( 'rating. A huge thanks in advance! Your feedback means the world to us.', 'all-in-one-wp-utilities' ),
+				esc_html__( 'Love Our Plugin?', 'all-in-one-utilities' ),
+				esc_html__( 'Show your support with a', 'all-in-one-utilities' ),
+				esc_url( 'https://wordpress.org/support/plugin/all-in-one-utilities/reviews?rate=5#new-post' ),
+				esc_html__( 'rating. A huge thanks in advance! Your feedback means the world to us.', 'all-in-one-utilities' ),
 			);
 
 		}
@@ -268,9 +268,9 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			if ( ! empty( $current_screen->id ) && strpos( $current_screen->id, 'aiowp-utilities_page_aiowpu_settings' ) !== false ) {
 				return sprintf(
 					'%s <a href="%s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> %s',
-					esc_html__( 'Show your support with a', 'all-in-one-wp-utilities' ),
-					esc_url( 'https://wordpress.org/support/plugin/all-in-one-wp-utilities/reviews?rate=5#new-post' ),
-					esc_html__( 'rating. A huge thanks in advance! Your feedback means the world to us.', 'all-in-one-wp-utilities' ),
+					esc_html__( 'Show your support with a', 'all-in-one-utilities' ),
+					esc_url( 'https://wordpress.org/support/plugin/all-in-one-utilities/reviews?rate=5#new-post' ),
+					esc_html__( 'rating. A huge thanks in advance! Your feedback means the world to us.', 'all-in-one-utilities' ),
 				);
 
 			}
@@ -373,7 +373,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 						$wp_admin_bar->add_node(
 							array(
 								'id'    => 'my-account',
-								'title' => __( 'My Profile', 'all-in-one-wp-utilities' ),
+								'title' => __( 'My Profile', 'all-in-one-utilities' ),
 							)
 						);
 
@@ -567,9 +567,9 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 						wp_die(
 							sprintf(
 								"%s <a href='%s'>%s</a>!",
-								esc_html__( 'RSS Feeds disabled, please visit the', 'all-in-one-wp-utilities' ),
+								esc_html__( 'RSS Feeds disabled, please visit the', 'all-in-one-utilities' ),
 								esc_url( home_url( '/' ) ),
-								esc_html__( 'homepage', 'all-in-one-wp-utilities' )
+								esc_html__( 'homepage', 'all-in-one-utilities' )
 							)
 						);
 					},
@@ -590,7 +590,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 						if ( empty( $result ) && ! is_admin() ) {
 							return new WP_Error(
 								'rest_authentication_error',
-								__( 'Forbidden', 'all-in-one-wp-utilities' ),
+								__( 'Forbidden', 'all-in-one-utilities' ),
 								array(
 									'status' => 403,
 								)

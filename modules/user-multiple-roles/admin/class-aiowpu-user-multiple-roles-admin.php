@@ -8,8 +8,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules/user-multiple-roles
- * @subpackage All_In_One_Wp_Utilities/modules/user-multiple-roles/admin
+ * @package    All_In_One_Utilities/modules/user-multiple-roles
+ * @subpackage All_In_One_Utilities/modules/user-multiple-roles/admin
  */
 
 // If this file is called directly, abort.
@@ -28,8 +28,8 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities/modules
-	 * @subpackage All_In_One_Wp_Utilities/modules/user-multiple-roles
+	 * @package    All_In_One_Utilities/modules
+	 * @subpackage All_In_One_Utilities/modules/user-multiple-roles
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
 	class Aiowpu_User_Multiple_Roles_Admin extends Aiowpu_Module_Admin {
@@ -95,7 +95,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			// remove existing column.
 			unset( $columns['role'] );
 
-			$columns['aiowpu_multiple_roles_column'] = __( 'Roles', 'all-in-one-wp-utilities' );
+			$columns['aiowpu_multiple_roles_column'] = __( 'Roles', 'all-in-one-utilities' );
 			return $columns;
 
 		}

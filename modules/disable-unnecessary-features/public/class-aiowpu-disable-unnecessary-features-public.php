@@ -8,8 +8,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules
- * @subpackage All_In_One_Wp_Utilities/modules/disable-unnecessary-features
+ * @package    All_In_One_Utilities/modules
+ * @subpackage All_In_One_Utilities/modules/disable-unnecessary-features
  */
 
 // If this file is called directly, abort.
@@ -28,8 +28,8 @@ if ( class_exists( 'Aiowpu_Module_Public' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities/modules
-	 * @subpackage All_In_One_Wp_Utilities/modules/disable-unnecessary-features
+	 * @package    All_In_One_Utilities/modules
+	 * @subpackage All_In_One_Utilities/modules/disable-unnecessary-features
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
 	class Aiowpu_Disable_Unnecessary_Features_Public extends Aiowpu_Module_Public {

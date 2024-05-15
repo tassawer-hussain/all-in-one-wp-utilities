@@ -2,8 +2,8 @@
 /**
  * The basic functions for the plugin and modules
  *
- * @package    All_In_One_Wp_Utilities
- * @subpackage All_In_One_Wp_Utilities/core
+ * @package    All_In_One_Utilities
+ * @subpackage All_In_One_Utilities/core
  * @version    1.0.0
  * @since      1.0.0
  */

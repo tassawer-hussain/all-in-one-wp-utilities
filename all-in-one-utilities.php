@@ -4,18 +4,18 @@
  *
  * @link              https://2bytecode.com
  * @since             1.0.0
- * @package           All_In_One_Wp_Utilities
+ * @package           All_In_One_Utilities
  *
  * @wordpress-plugin
- * Plugin Name:       All-in-One WP Utilities
- * Plugin URI:        https://wordpress.org/plugins/all-in-one-wp-utilities
+ * Plugin Name:       All-in-One Utilities
+ * Plugin URI:        https://wordpress.org/plugins/all-in-one-utilities
  * Description:       Must use utilities for your WordPress site. Turn on/off features with a single click.
  * Version:           1.0.0
  * Author:            2ByteCode
  * Author URI:        https://2bytecode.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       all-in-one-wp-utilities
+ * Text Domain:       all-in-one-utilities
  * Domain Path:       /languages
  */
 
@@ -29,7 +29,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'ALL_IN_ONE_WP_UTILITIES_VERSION', '1.0.0' );
+define( 'ALL_IN_ONE_UTILITIES_VERSION', '1.0.0' );
 
 /**
  * Variables
@@ -65,7 +65,7 @@ register_deactivation_hook( __FILE__, 'deactivate_all_in_one_wp_utilities' );
  */
 function aiowpu_load_plugin_textdomain() {
 	load_plugin_textdomain(
-		'all-in-one-wp-utilities',
+		'all-in-one-utilities',
 		false,
 		plugin_basename( AIOWPU_PATH ) . '/languages/'
 	);
@@ -78,7 +78,7 @@ add_action( 'plugins_loaded', 'aiowpu_load_plugin_textdomain' );
  * @param array $actions An array of plugin action links.
  */
 function aiowpu_action_links( $actions ) {
-	$actions[] = sprintf( '<a href="%s">%s</a>', aiowpu_get_page_url( 'manager', 'admin' ), esc_html__( 'Settings', 'all-in-one-wp-utilities' ) );
+	$actions[] = sprintf( '<a href="%s">%s</a>', aiowpu_get_page_url( 'manager', 'admin' ), esc_html__( 'Settings', 'all-in-one-utilities' ) );
 
 	return $actions;
 }
@@ -88,4 +88,4 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'aiowpu_action
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'core/class-all-in-one-wp-utilities.php';
+require plugin_dir_path( __FILE__ ) . 'core/class-all-in-one-utilities.php';

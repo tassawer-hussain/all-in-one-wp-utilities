@@ -4,8 +4,8 @@
  *
  * @var $roles array All applicable roles in name => label pairs.
  *
- * @package    All_In_One_Wp_Utilities/modules/user-multiple-roles
- * @subpackage All_In_One_Wp_Utilities/modules/user-multiple-roles/templates
+ * @package    All_In_One_Utilities/modules/user-multiple-roles
+ * @subpackage All_In_One_Utilities/modules/user-multiple-roles/templates
  */
 
 ?>
@@ -23,7 +23,7 @@
 		<?php endforeach; ?>
 
 	<?php else : ?>
-		<span class="aiowpu-multiple-roles-no-role"><?php esc_html_e( 'None', 'all-in-one-wp-utilities' ); ?></span>
+		<span class="aiowpu-multiple-roles-no-role"><?php esc_html_e( 'None', 'all-in-one-utilities' ); ?></span>
 	<?php endif; ?>
 
 </div><!-- .aiowpu-multiple-roles -->

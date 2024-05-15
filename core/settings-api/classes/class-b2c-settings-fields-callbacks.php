@@ -359,8 +359,8 @@ if ( ! class_exists( 'B2C_Settings_Fields_Callbacks' ) ) {
 				esc_attr( $this->option_name ),
 				esc_attr( $id ),
 				wp_kses( $desc, 'post' ),
-				esc_attr( __( 'Add', 'all-in-one-wp-utilities' ) ),
-				esc_attr( __( 'Remove', 'all-in-one-wp-utilities' ) ),
+				esc_attr( __( 'Add', 'all-in-one-utilities' ) ),
+				esc_attr( __( 'Remove', 'all-in-one-utilities' ) ),
 			);
 
 			$args = wp_json_encode(
@@ -420,8 +420,8 @@ if ( ! class_exists( 'B2C_Settings_Fields_Callbacks' ) ) {
 				esc_attr( $this->option_name ),
 				esc_attr( $id ),
 				wp_kses( $desc, 'post' ),
-				esc_attr( __( 'Add', 'all-in-one-wp-utilities' ) ),
-				esc_attr( __( 'Remove', 'all-in-one-wp-utilities' ) ),
+				esc_attr( __( 'Add', 'all-in-one-utilities' ) ),
+				esc_attr( __( 'Remove', 'all-in-one-utilities' ) ),
 			);
 
 			$args = wp_json_encode(

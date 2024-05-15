@@ -5,17 +5,17 @@
  * @var $roles array All WordPress roles in name => label pairs.
  * @var $user_roles array An array of role names belonging to the current user.
  *
- * @package    All_In_One_Wp_Utilities/modules/user-multiple-roles
- * @subpackage All_In_One_Wp_Utilities/modules/user-multiple-roles/templates
+ * @package    All_In_One_Utilities/modules/user-multiple-roles
+ * @subpackage All_In_One_Utilities/modules/user-multiple-roles/templates
  */
 
 ?>
-<h3><?php esc_html_e( 'Permissions', 'all-in-one-wp-utilities' ); ?></h3>
+<h3><?php esc_html_e( 'Permissions', 'all-in-one-utilities' ); ?></h3>
 
 <table class="form-table">
 
 	<tr>
-		<th><?php esc_html_e( 'User Roles', 'all-in-one-wp-utilities' ); ?></th>
+		<th><?php esc_html_e( 'User Roles', 'all-in-one-utilities' ); ?></th>
 
 		<td>
 			<?php

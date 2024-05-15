@@ -7,8 +7,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules/disable-unnecessary-features
- * @subpackage All_In_One_Wp_Utilities/modules/disable-unnecessary-features/admin
+ * @package    All_In_One_Utilities/modules/disable-unnecessary-features
+ * @subpackage All_In_One_Utilities/modules/disable-unnecessary-features/admin
  */
 
 ?>

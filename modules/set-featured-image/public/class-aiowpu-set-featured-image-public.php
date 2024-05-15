@@ -8,8 +8,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules
- * @subpackage All_In_One_Wp_Utilities/modules/set-featured-image
+ * @package    All_In_One_Utilities/modules
+ * @subpackage All_In_One_Utilities/modules/set-featured-image
  */
 
 // If this file is called directly, abort.
@@ -28,8 +28,8 @@ if ( class_exists( 'Aiowpu_Module_Public' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities/modules
-	 * @subpackage All_In_One_Wp_Utilities/modules/set-featured-image
+	 * @package    All_In_One_Utilities/modules
+	 * @subpackage All_In_One_Utilities/modules/set-featured-image
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
 	class Aiowpu_Set_Featured_Image_Public extends Aiowpu_Module_Public {

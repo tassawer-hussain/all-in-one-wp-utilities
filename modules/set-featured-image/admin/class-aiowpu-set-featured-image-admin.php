@@ -8,8 +8,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules
- * @subpackage All_In_One_Wp_Utilities/modules/set-featured-image
+ * @package    All_In_One_Utilities/modules
+ * @subpackage All_In_One_Utilities/modules/set-featured-image
  */
 
 // If this file is called directly, abort.
@@ -28,8 +28,8 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities/modules
-	 * @subpackage All_In_One_Wp_Utilities/modules/set-featured-image
+	 * @package    All_In_One_Utilities/modules
+	 * @subpackage All_In_One_Utilities/modules/set-featured-image
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
 	final class Aiowpu_Set_Featured_Image_Admin extends Aiowpu_Module_Admin {
@@ -88,8 +88,8 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 				'aiowpu-featured-image',
 				'aiowpu_featured_image',
 				array(
-					'manager_title'  => __( 'Select default featured image', 'all-in-one-wp-utilities' ),
-					'manager_button' => __( 'Set default featured image', 'all-in-one-wp-utilities' ),
+					'manager_title'  => __( 'Select default featured image', 'all-in-one-utilities' ),
+					'manager_button' => __( 'Set default featured image', 'all-in-one-utilities' ),
 					'aiowpufi_nonce' => wp_create_nonce( 'aiowpu_featured_image_nonce' ),
 				)
 			);
@@ -113,7 +113,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			// Step 2 - Register the section.
 			add_settings_section(
 				'aiowpu-featured-image',
-				sprintf( '<span id="%s">%s</span>', aiowpu_get_page_slug( $this->slug ), esc_html__( 'Set Default Featured Image', 'all-in-one-wp-utilities' ) ),
+				sprintf( '<span id="%s">%s</span>', aiowpu_get_page_slug( $this->slug ), esc_html__( 'Set Default Featured Image', 'all-in-one-utilities' ) ),
 				array( &$this, 'aiowpu_featured_image_section_description' ),
 				'media'
 			);
@@ -121,7 +121,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			// Step 3 - Add fields to the section. Can be add any number of fields. - Added 4 fields.
 			add_settings_field(
 				'aiowpu_dfi',
-				_x( 'Default featured image', 'Label on the settings page.', 'all-in-one-wp-utilities' ),
+				_x( 'Default featured image', 'Label on the settings page.', 'all-in-one-utilities' ),
 				array( &$this, 'aiowpu_featured_image_settings_html' ),
 				'media',
 				'aiowpu-featured-image',
@@ -151,7 +151,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 		 */
 		public function aiowpu_featured_image_section_description() {
 
-			echo '<p>' . esc_html__( 'The image set here will serve as the default featured image for all post types that support thumbnails, in instances where the user hasn\'t configured one.', 'all-in-one-wp-utilities' ) . '</p>';
+			echo '<p>' . esc_html__( 'The image set here will serve as the default featured image for all post types that support thumbnails, in instances where the user hasn\'t configured one.', 'all-in-one-utilities' ) . '</p>';
 
 		}
 

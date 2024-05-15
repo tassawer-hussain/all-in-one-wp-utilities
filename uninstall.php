@@ -21,7 +21,7 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities
+ * @package    All_In_One_Utilities
  */
 
 // If uninstall not called from WordPress, then exit.

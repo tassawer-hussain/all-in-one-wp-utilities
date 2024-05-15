@@ -5,8 +5,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities
- * @subpackage All_In_One_Wp_Utilities/admin
+ * @package    All_In_One_Utilities
+ * @subpackage All_In_One_Utilities/admin
  */
 
 /**
@@ -15,7 +15,7 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    All_In_One_Wp_Utilities
+ * @package    All_In_One_Utilities
  * @subpackage All_In_One_Wp_Utilities/admin
  * @author     2ByteCode <support@2bytecode.com>
  */
@@ -108,8 +108,8 @@ class All_In_One_Wp_Utilities_Admin {
 		$svg = 'data:image/svg+xml;base64,' . base64_encode( $svg ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
 
 		add_menu_page(
-			esc_html__( 'AIOWP Utilities', 'all-in-one-wp-utilities' ),
-			esc_html__( 'AIOWP Utilities', 'all-in-one-wp-utilities' ),
+			esc_html__( 'All-in-One Utilities', 'all-in-one-utilities' ),
+			esc_html__( 'All-in-One Utilities', 'all-in-one-utilities' ),
 			'manage_options',
 			aiowpu_get_page_slug( $this->menu_slug ),
 			array( $this, 'settings_page' ),
@@ -204,9 +204,9 @@ class All_In_One_Wp_Utilities_Admin {
 		$moduel_name = $this->modules[ $slug ]['name'];
 
 		if ( $state ) {
-			$this->msg = sprintf( '<div id="message" class="updated fade"><p><strong>%s</strong> %s</p></div>', $moduel_name, esc_html__( 'module activated.', 'all-in-one-wp-utilities' ) );
+			$this->msg = sprintf( '<div id="message" class="updated fade"><p><strong>%s</strong> %s</p></div>', $moduel_name, esc_html__( 'module activated.', 'all-in-one-utilities' ) );
 		} else {
-			$this->msg = sprintf( '<div id="message" class="updated fade"><p><strong>%s</strong> %s</p></div>', $moduel_name, esc_html__( 'module deactivated.', 'all-in-one-wp-utilities' ) );
+			$this->msg = sprintf( '<div id="message" class="updated fade"><p><strong>%s</strong> %s</p></div>', $moduel_name, esc_html__( 'module deactivated.', 'all-in-one-utilities' ) );
 		}
 	}
 

@@ -1,13 +1,12 @@
 <?php
-
 /**
  * The public-facing functionality of the plugin.
  *
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities
- * @subpackage All_In_One_Wp_Utilities/public
+ * @package    All_In_One_Utilities
+ * @subpackage All_In_One_Utilities/public
  */
 
 /**
@@ -16,8 +15,8 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    All_In_One_Wp_Utilities
- * @subpackage All_In_One_Wp_Utilities/public
+ * @package    All_In_One_Utilities
+ * @subpackage All_In_One_Utilities/public
  * @author     2ByteCode <support@2bytecode.com>
  */
 class All_In_One_Wp_Utilities_Public {
@@ -44,13 +43,13 @@ class All_In_One_Wp_Utilities_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param      string $plugin_name       The name of the plugin.
+	 * @param      string $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+		$this->version     = $version;
 
 	}
 

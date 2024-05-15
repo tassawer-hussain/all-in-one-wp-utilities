@@ -2,8 +2,8 @@
 /**
  * Helpers User Multiple Roles
  *
- * @package    All_In_One_Wp_Utilities/modules/user-multiple-roles
- * @subpackage All_In_One_Wp_Utilities/modules/user-multiple-roles/helper
+ * @package    All_In_One_Utilities/modules/user-multiple-roles
+ * @subpackage All_In_One_Utilities/modules/user-multiple-roles/helper
  */
 
 /**

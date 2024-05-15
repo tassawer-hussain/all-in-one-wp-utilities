@@ -7,8 +7,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities
- * @subpackage All_In_One_Wp_Utilities/admin/partials
+ * @package    All_In_One_Utilities
+ * @subpackage All_In_One_Utilities/admin/partials
  */
 
 ?>
@@ -16,7 +16,7 @@
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
 <div class="wrap aiowpu-manager">
-	<h1><?php esc_html_e( 'AIOWP Utilities Modules', 'all-in-one-wp-utilities' ); ?></h1>
+	<h1><?php esc_html_e( 'All-in-One Utilities Modules', 'all-in-one-utilities' ); ?></h1>
 
 	<div id="poststuff">
 		<div id="post-body" class="metabox-holder">
@@ -69,17 +69,17 @@
 								<ul class="subsubsub">
 									<li class="all">
 										<a href="<?php echo esc_url( $page_link ); ?>" class="<?php echo esc_attr( ( ! isset( $filter ) ) ? 'current' : '' ); ?>">
-											<?php esc_html_e( 'All', 'all-in-one-wp-utilities' ); ?> <span class="count">(<?php echo esc_attr( $num_modules ); ?>)</span>
+											<?php esc_html_e( 'All', 'all-in-one-utilities' ); ?> <span class="count">(<?php echo esc_attr( $num_modules ); ?>)</span>
 										</a> |
 									</li>
 									<li class="active">
 										<a href="<?php echo esc_url( $active_link ); ?>" class="<?php echo esc_attr( ( isset( $filter ) && 'active' === $filter ) ? 'current' : '' ); ?>">
-											<?php esc_html_e( 'Active', 'all-in-one-wp-utilities' ); ?> <span class="count">(<?php echo esc_attr( $num_active_modules ); ?>)</span>
+											<?php esc_html_e( 'Active', 'all-in-one-utilities' ); ?> <span class="count">(<?php echo esc_attr( $num_active_modules ); ?>)</span>
 										</a> |
 									</li>
 									<li class="inactive">
 										<a href="<?php echo esc_url( $inactive_link ); ?>" class="<?php echo esc_attr( ( isset( $filter ) && 'inactive' === $filter ) ? 'current' : '' ); ?>">
-											<?php esc_html_e( 'Inactive', 'all-in-one-wp-utilities' ); ?> <span class="count">(<?php echo esc_attr( $num_inactive_modules ); ?>)</span>
+											<?php esc_html_e( 'Inactive', 'all-in-one-utilities' ); ?> <span class="count">(<?php echo esc_attr( $num_inactive_modules ); ?>)</span>
 										</a>
 									</li>
 								</ul>
@@ -88,17 +88,17 @@
 
 							<div class="tablenav top">
 								<div class="alignleft actions bulkactions">
-									<label for="bulk-action-selector-top" class="screen-reader-text"><?php esc_html_e( 'Select bulk action', 'all-in-one-wp-utilities' ); ?></label>
+									<label for="bulk-action-selector-top" class="screen-reader-text"><?php esc_html_e( 'Select bulk action', 'all-in-one-utilities' ); ?></label>
 									<select name="action" id="bulk-action-selector-top">
-										<option value="-1"><?php esc_html_e( 'Bulk Actions', 'all-in-one-wp-utilities' ); ?></option>
-										<option value="activate-selected"><?php esc_html_e( 'Activate', 'all-in-one-wp-utilities' ); ?></option>
-										<option value="deactivate-selected"><?php esc_html_e( 'Deactivate', 'all-in-one-wp-utilities' ); ?></option>
+										<option value="-1"><?php esc_html_e( 'Bulk Actions', 'all-in-one-utilities' ); ?></option>
+										<option value="activate-selected"><?php esc_html_e( 'Activate', 'all-in-one-utilities' ); ?></option>
+										<option value="deactivate-selected"><?php esc_html_e( 'Deactivate', 'all-in-one-utilities' ); ?></option>
 									</select>
 									<input type="submit" id="doaction" class="button action" value="Apply">
 								</div>
 
 								<div class="tablenav-pages one-page">
-									<span class="displaying-num"><?php echo esc_attr( $num_modules ); ?> <?php esc_html_e( 'items', 'all-in-one-wp-utilities' ); ?></span>
+									<span class="displaying-num"><?php echo esc_attr( $num_modules ); ?> <?php esc_html_e( 'items', 'all-in-one-utilities' ); ?></span>
 								</div>
 							</div>
 						</div>
@@ -110,8 +110,8 @@
 									<th id="cb" class="manage-column column-cb check-column">
 										<input id="cb-select-all-1" type="checkbox">
 									</th>
-									<th scope="col" class="manage-column column-name column-primary"><?php esc_html_e( 'Module', 'all-in-one-wp-utilities' ); ?></th>
-									<th scope="col" class="manage-column column-description"><?php esc_html_e( 'Description', 'all-in-one-wp-utilities' ); ?></th>
+									<th scope="col" class="manage-column column-name column-primary"><?php esc_html_e( 'Module', 'all-in-one-utilities' ); ?></th>
+									<th scope="col" class="manage-column column-description"><?php esc_html_e( 'Description', 'all-in-one-utilities' ); ?></th>
 									<th scope="col" class="manage-column"></th>
 								</tr>
 							</thead>
@@ -173,11 +173,11 @@
 													<?php if ( 'default' === $module['type'] ) { ?>
 														<?php if ( $module_enabled ) { ?>
 															<span class="edit">
-																<a href="<?php echo esc_url( $deactivate_link ); ?>" role="button"><?php esc_html_e( 'Deactivate', 'all-in-one-wp-utilities' ); ?></a>
+																<a href="<?php echo esc_url( $deactivate_link ); ?>" role="button"><?php esc_html_e( 'Deactivate', 'all-in-one-utilities' ); ?></a>
 															</span>
 														<?php } else { ?>
 															<span class="edit">
-																<a href="<?php echo esc_url( $activate_link ); ?>" role="button"><?php esc_html_e( 'Activate', 'all-in-one-wp-utilities' ); ?></a>
+																<a href="<?php echo esc_url( $activate_link ); ?>" role="button"><?php esc_html_e( 'Activate', 'all-in-one-utilities' ); ?></a>
 															</span>
 														<?php } ?>
 													<?php } ?>
@@ -226,7 +226,7 @@
 								if ( ! $counter ) {
 									?>
 										<tr>
-											<td scope="col" colspan="4"><?php esc_html_e( 'No modules avaliable.', 'all-in-one-wp-utilities' ); ?></td>
+											<td scope="col" colspan="4"><?php esc_html_e( 'No modules avaliable.', 'all-in-one-utilities' ); ?></td>
 										</tr>
 									<?php
 								}

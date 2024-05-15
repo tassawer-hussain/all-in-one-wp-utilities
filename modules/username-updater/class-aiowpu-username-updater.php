@@ -8,8 +8,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules
- * @subpackage All_In_One_Wp_Utilities/modules/username-updater
+ * @package    All_In_One_Utilities/modules
+ * @subpackage All_In_One_Utilities/modules/username-updater
  */
 
 // If this file is called directly, abort.
@@ -28,8 +28,8 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities/modules
-	 * @subpackage All_In_One_Wp_Utilities/modules/username-updater
+	 * @package    All_In_One_Utilities/modules
+	 * @subpackage All_In_One_Utilities/modules/username-updater
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
 	class Aiowpu_Username_Updater extends Aiowpu_Module {
@@ -38,8 +38,8 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 		 * Register module
 		 */
 		public function register() {
-			$this->name     = esc_html__( 'Username Updater', 'all-in-one-wp-utilities' );
-			$this->desc     = esc_html__( 'Allow admin to update username of any user easily and notify the user via email.', 'all-in-one-wp-utilities' );
+			$this->name     = esc_html__( 'Username Updater', 'all-in-one-utilities' );
+			$this->desc     = esc_html__( 'Allow admin to update username of any user easily and notify the user via email.', 'all-in-one-utilities' );
 			$this->slug     = 'username_updater';
 			$this->type     = 'default';
 			$this->category = 'tools';
@@ -48,7 +48,7 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 			$this->enabled  = true;
 			$this->links    = array(
 				array(
-					'name'   => esc_html__( 'View documentation', 'all-in-one-wp-utilities' ),
+					'name'   => esc_html__( 'View documentation', 'all-in-one-utilities' ),
 					'url'    => aiowpu_get_setting( 'documentation' ) . '/username-updater/',
 					'target' => '_blank',
 				),

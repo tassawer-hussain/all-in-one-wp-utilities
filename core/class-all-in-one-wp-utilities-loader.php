@@ -5,8 +5,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities
- * @subpackage All_In_One_Wp_Utilities/includes
+ * @package    All_In_One_Utilities
+ * @subpackage All_In_One_Utilities/includes
  */
 
 /**
@@ -16,8 +16,8 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    All_In_One_Wp_Utilities
- * @subpackage All_In_One_Wp_Utilities/includes
+ * @package    All_In_One_Utilities
+ * @subpackage All_In_One_Utilities/includes
  * @author     2ByteCode <support@2bytecode.com>
  */
 class All_In_One_Wp_Utilities_Loader {

@@ -8,15 +8,15 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities
- * @subpackage All_In_One_Wp_Utilities/core
+ * @package    All_In_One_Utilities
+ * @subpackage All_In_One_Utilities/core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'All_In_One_Wp_Utilities' ) ) {
+if ( ! class_exists( 'All_In_One_Utilities' ) ) {
 	/**
 	 * The core plugin class.
 	 *
@@ -27,11 +27,11 @@ if ( ! class_exists( 'All_In_One_Wp_Utilities' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities
-	 * @subpackage All_In_One_Wp_Utilities/core
+	 * @package    All_In_One_Utilities
+	 * @subpackage All_In_One_Utilities/core
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
-	class All_In_One_Wp_Utilities {
+	class All_In_One_Utilities {
 
 		/**
 		 * The loader that's responsible for maintaining and registering all hooks that power
@@ -141,7 +141,7 @@ if ( ! class_exists( 'All_In_One_Wp_Utilities' ) ) {
 			$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_menu_page' );
 
 			// Create an instance of settings API class.
-			$setting_menu = new Settings_API_2BC( $this->get_plugin_name(), $this->get_version(), 'aiowpu_settings', esc_html__( 'AIOWP Settings', 'all-in-one-wp-utilities' ), esc_html__( 'AIOWP Settings', 'all-in-one-wp-utilities' ) );
+			$setting_menu = new Settings_API_2BC( $this->get_plugin_name(), $this->get_version(), 'aiowpu_settings', esc_html__( 'All-in-One Utilities Settings', 'all-in-one-utilities' ), esc_html__( 'Settings', 'all-in-one-utilities' ) );
 			$this->loader->add_action( 'admin_enqueue_scripts', $setting_menu, 'enqueue_styles' );
 			$this->loader->add_action( 'admin_enqueue_scripts', $setting_menu, 'enqueue_scripts' );
 			$this->loader->add_action( 'admin_menu', $setting_menu, 'b2c_settings_admin_menu' );
@@ -178,19 +178,19 @@ if ( ! class_exists( 'All_In_One_Wp_Utilities' ) ) {
 			// Get plugin data.
 			$plugin_data = get_plugin_data( AIOWPU_PATH . '/all-in-one-wp-utilities.php' );
 
-			if ( defined( 'ALL_IN_ONE_WP_UTILITIES_VERSION' ) ) {
-				$this->version = ALL_IN_ONE_WP_UTILITIES_VERSION;
+			if ( defined( 'ALL_IN_ONE_UTILITIES_VERSION' ) ) {
+				$this->version = ALL_IN_ONE_UTILITIES_VERSION;
 			} else {
 				$this->version = $plugin_data['Version'];
 			}
 
-			$this->plugin_name = 'all-in-one-wp-utilities';
+			$this->plugin_name = 'all-in-one-utilities';
 
 			// Settings.
 			$this->settings = array(
-				'name'          => esc_html__( 'All-in-One WP Utilities', 'all-in-one-wp-utilities' ),
+				'name'          => esc_html__( 'All-in-One WP Utilities', 'all-in-one-utilities' ),
 				'version'       => $plugin_data['Version'],
-				'documentation' => $plugin_data['AuthorURI'] . '/documentation/all-in-one-wp-utilities', // https://2bytecode.com/documentation/all-in-one-wp-utilities/ .
+				'documentation' => $plugin_data['AuthorURI'] . '/documentation/all-in-one-utilities', // https://2bytecode.com/documentation/all-in-one-utilities/ .
 			);
 
 			$this->load_dependencies();
@@ -344,7 +344,7 @@ if ( ! class_exists( 'All_In_One_Wp_Utilities' ) ) {
 
 		// Init.
 		if ( ! isset( $aiowpu_instance ) ) {
-			$aiowpu_instance = new All_In_One_Wp_Utilities();
+			$aiowpu_instance = new All_In_One_Utilities();
 			$aiowpu_instance->run();
 		}
 

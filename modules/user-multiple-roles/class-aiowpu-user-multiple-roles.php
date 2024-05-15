@@ -8,8 +8,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules
- * @subpackage All_In_One_Wp_Utilities/modules/user-multiple-roles
+ * @package    All_In_One_Utilities/modules
+ * @subpackage All_In_One_Utilities/modules/user-multiple-roles
  */
 
 // If this file is called directly, abort.
@@ -28,8 +28,8 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities/modules
-	 * @subpackage All_In_One_Wp_Utilities/modules/user-multiple-roles
+	 * @package    All_In_One_Utilities/modules
+	 * @subpackage All_In_One_Utilities/modules/user-multiple-roles
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
 	class Aiowpu_User_Multiple_Roles extends Aiowpu_Module {
@@ -38,8 +38,8 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 		 * Register module
 		 */
 		public function register() {
-			$this->name     = esc_html__( 'User Multiple Roles', 'all-in-one-wp-utilities' );
-			$this->desc     = esc_html__( 'Allow users to have multiple roles on one site', 'all-in-one-wp-utilities' );
+			$this->name     = esc_html__( 'User Multiple Roles', 'all-in-one-utilities' );
+			$this->desc     = esc_html__( 'Allow users to have multiple roles on one site', 'all-in-one-utilities' );
 			$this->slug     = 'user_multiple_roles';
 			$this->type     = 'default';
 			$this->category = 'tools';
@@ -48,7 +48,7 @@ if ( class_exists( 'Aiowpu_Module' ) ) {
 			$this->enabled  = true;
 			$this->links    = array(
 				array(
-					'name'   => esc_html__( 'View documentation', 'all-in-one-wp-utilities' ),
+					'name'   => esc_html__( 'View documentation', 'all-in-one-utilities' ),
 					'url'    => aiowpu_get_setting( 'documentation' ) . '/user-multiple-roles/',
 					'target' => '_blank',
 				),

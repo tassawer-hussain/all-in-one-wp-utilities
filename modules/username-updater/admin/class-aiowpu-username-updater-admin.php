@@ -8,8 +8,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules/username-updater
- * @subpackage All_In_One_Wp_Utilities/modules/username-updater/admin
+ * @package    All_In_One_Utilities/modules/username-updater
+ * @subpackage All_In_One_Utilities/modules/username-updater/admin
  */
 
 // If this file is called directly, abort.
@@ -28,8 +28,8 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 	 * version of the plugin.
 	 *
 	 * @since      1.0.0
-	 * @package    All_In_One_Wp_Utilities/modules
-	 * @subpackage All_In_One_Wp_Utilities/modules/username-updater
+	 * @package    All_In_One_Utilities/modules
+	 * @subpackage All_In_One_Utilities/modules/username-updater
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
 	class Aiowpu_Username_Updater_Admin extends Aiowpu_Module_Admin {
@@ -94,7 +94,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			$actions['update_username'] = "<a
 				class='update_username'
 				href='" . esc_url( admin_url( 'admin.php?page=aiowpu-update-username&update=' . $user_object->ID ) ) . "'>"
-			. __( 'Update username', 'all-in-one-wp-utilities' ) .
+			. __( 'Update username', 'all-in-one-utilities' ) .
 			'</a>';
 
 			return $actions;
@@ -109,8 +109,8 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 		public function aiowpu_create_update_username_subpage() {
 
 			add_users_page(
-				__( 'All-In-One WP Utilities Update Username', 'all-in-one-wp-utilities' ),
-				__( 'Update Username', 'all-in-one-wp-utilities' ),
+				__( 'All-In-One WP Utilities Update Username', 'all-in-one-utilities' ),
+				__( 'Update Username', 'all-in-one-utilities' ),
 				'manage_options',
 				'aiowpu-update-username',
 				array( $this, 'aiowpu_update_username_page_cb' )
@@ -162,7 +162,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 
 			// - if nonce is not present.
 			if ( ! wp_verify_nonce( $_post['_csrfToken'], 'aiowpu_update_username_action' ) ) {
-				$this->error_msg = __( 'Invalid form submission.', 'all-in-one-wp-utilities' );
+				$this->error_msg = __( 'Invalid form submission.', 'all-in-one-utilities' );
 				return false;
 			}
 
@@ -171,13 +171,13 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 
 			// - Username field is required.
 			if ( empty( $name ) ) {
-				$this->error_msg = __( 'Error : You can not enter an empty username.', 'all-in-one-wp-utilities' );
+				$this->error_msg = __( 'Error : You can not enter an empty username.', 'all-in-one-utilities' );
 				return false;
 			}
 
 			// - Username alread exist. Username must be unique.
 			if ( username_exists( $name ) ) {
-				$this->error_msg = sprintf( '%s (%s) %s.', esc_html__( 'Error: This username', 'all-in-one-wp-utilities' ), $name, esc_html__( 'is already exist. ', 'all-in-one-wp-utilities' ) );
+				$this->error_msg = sprintf( '%s (%s) %s.', esc_html__( 'Error: This username', 'all-in-one-utilities' ), $name, esc_html__( 'is already exist. ', 'all-in-one-utilities' ) );
 				return false;
 			}
 
@@ -188,13 +188,13 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 
 			// Check the SQL update query result.
 			if ( ! $query_result ) {
-				$this->error_msg = __( 'Error: There is something wrong in the SQL command to run.', 'all-in-one-wp-utilities' );
+				$this->error_msg = __( 'Error: There is something wrong in the SQL command to run.', 'all-in-one-utilities' );
 				return false;
 			}
 
 			// Send email notification to the user.
 			if ( ! isset( $_post['user_notification'] ) ) {
-				$this->success_msg = __( 'Username Updated! As email notification is not enabled, the user was not notified.', 'all-in-one-wp-utilities' );
+				$this->success_msg = __( 'Username Updated! As email notification is not enabled, the user was not notified.', 'all-in-one-utilities' );
 				return true;
 			}
 
@@ -202,10 +202,10 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			$is_email_sent = $this->aiowpu_send_update_username_notification_to_user( $_get['update'] );
 
 			if ( $is_email_sent ) {
-				$this->success_msg = __( 'Username Updated! Mail Sent to the user about username change.', 'all-in-one-wp-utilities' );
+				$this->success_msg = __( 'Username Updated! Mail Sent to the user about username change.', 'all-in-one-utilities' );
 				return true;
 			} else {
-				$this->error_msg = __( 'Username Updated! But mail could not be sent to the user about username change.', 'all-in-one-wp-utilities' );
+				$this->error_msg = __( 'Username Updated! But mail could not be sent to the user about username change.', 'all-in-one-utilities' );
 				return false;
 			}
 

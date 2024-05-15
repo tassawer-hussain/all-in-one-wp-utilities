@@ -7,8 +7,8 @@
  * @link       https://2bytecode.com
  * @since      1.0.0
  *
- * @package    All_In_One_Wp_Utilities/modules/username-updater
- * @subpackage All_In_One_Wp_Utilities/modules/username-updater/admin
+ * @package    All_In_One_Utilities/modules/username-updater
+ * @subpackage All_In_One_Utilities/modules/username-updater/admin
  */
 
 ?>
@@ -42,12 +42,12 @@
 	<table class="form-table">
 
 		<tr class="user-user-login-wrap">
-			<th><label for="olduser_login"><?php echo esc_html( __( 'Old Username', 'all-in-one-wp-utilities' ) ); ?></label></th>
+			<th><label for="olduser_login"><?php echo esc_html( __( 'Old Username', 'all-in-one-utilities' ) ); ?></label></th>
 			<td><strong><?php echo esc_html( $user_info->user_login ); ?></strong></td>
 		</tr>
 
 		<tr class="user-user-login-wrap">
-			<th><label for="user_login"><?php echo esc_html( __( 'New Username', 'all-in-one-wp-utilities' ) ); ?></label></th>
+			<th><label for="user_login"><?php echo esc_html( __( 'New Username', 'all-in-one-utilities' ) ); ?></label></th>
 			<td>
 				<input
 					type="text"
@@ -59,7 +59,7 @@
 		</tr>
 
 		<tr>
-			<th><?php echo esc_html( __( 'Send User Notification', 'all-in-one-wp-utilities' ) ); ?></th>
+			<th><?php echo esc_html( __( 'Send User Notification', 'all-in-one-utilities' ) ); ?></th>
 			<td>
 				<label for="user_notification">
 					<input
@@ -68,7 +68,7 @@
 						id="user_notification"
 						value="yes"
 						<?php echo isset( $_post['user_notification'] ) ? esc_attr( "checked='checked'" ) : ''; ?>/>
-					<?php echo esc_html( __( 'Send the user an email about their updated username.', 'all-in-one-wp-utilities' ) ); ?>
+					<?php echo esc_html( __( 'Send the user an email about their updated username.', 'all-in-one-utilities' ) ); ?>
 				</label>
 			</td>
 		</tr>
