@@ -149,22 +149,23 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 		 */
 		public function aiowpu_update_username_on_form_submission() {
 
-			$_post = filter_input_array( INPUT_POST );
-
-			// EARLY BAIL.
-			// - if username update form is not submitted.
-			if ( ! isset( $_post['aiowpu_update_username'] ) ) {
-				return false;
-			}
-
 			// - if nonce is not present.
-			if ( ! wp_verify_nonce( $_post['_csrfToken'], 'aiowpu_update_username_action' ) ) {
+			if ( isset( $_POST['_csrfToken'] )
+				&& ! empty( $_POST['_csrfToken'] )
+				&& ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_csrfToken'] ) ), 'aiowpu_update_username_action' ) ) {
 				$this->error_msg = __( 'Invalid form submission.', 'all-in-one-utilities' );
 				return false;
 			}
 
+			// EARLY BAIL.
+			// - if username update form is not submitted.
+			if ( ! isset( $_POST['aiowpu_update_username'] ) ) {
+				return false;
+			}
+
 			// Grab the usernames from the form submission.
-			$name = sanitize_user( $_post['user_login'] );
+			$user_login = isset( $_POST['user_login'] ) && ! empty( $_POST['user_login'] ) ? sanitize_text_field( wp_unslash( $_POST['user_login'] ) ) : '';
+			$name       = sanitize_user( $user_login );
 
 			// - Username field is required.
 			if ( empty( $name ) ) {
@@ -192,7 +193,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			}
 
 			// Send email notification to the user.
-			if ( ! isset( $_post['user_notification'] ) ) {
+			if ( ! isset( $_POST['user_notification'] ) ) {
 				$this->success_msg = __( 'Username Updated! As email notification is not enabled, the user was not notified.', 'all-in-one-utilities' );
 				return true;
 			}
