@@ -176,7 +176,7 @@ if ( ! class_exists( 'All_In_One_Utilities' ) ) {
 			}
 
 			// Get plugin data.
-			$plugin_data = get_plugin_data( AIOWPU_PATH . '/all-in-one-wp-utilities.php' );
+			$plugin_data = get_plugin_data( AIOWPU_PATH . '/all-in-one-utilities.php' );
 
 			if ( defined( 'ALL_IN_ONE_UTILITIES_VERSION' ) ) {
 				$this->version = ALL_IN_ONE_UTILITIES_VERSION;
