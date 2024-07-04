@@ -363,23 +363,21 @@ if ( ! class_exists( 'B2C_Settings_Fields_Callbacks' ) ) {
 				esc_attr( __( 'Remove', 'all-in-one-utilities' ) ),
 			);
 
-			$args = wp_json_encode(
-				array(
-					$this->option_name . '_' . $id,
-					$this->option_name . '_' . $id . '_wrapper',
-					'.b2c_add_img_' . $id,
-					'.b2c_remove_img_' . $id,
-				)
+			$args = array(
+				$this->option_name . '_' . $id,
+				$this->option_name . '_' . $id . '_wrapper',
+				'.b2c_add_img_' . $id,
+				'.b2c_remove_img_' . $id,
 			);
 
-			$js_code = <<<IMG_JS
-				<script type="text/javascript">
+			printf(
+				'<script type="text/javascript">
 					jQuery( window ).load(function() {
-						app.imageSettingsfields( $args );
+						app.imageSettingsfields(%s);
 					});
-				</script>
-				IMG_JS;
-			echo $js_code; // phpcs:ignore WordPress.Security.EscapeOutput
+				</script>',
+				wp_json_encode( $args ),
+			);
 
 		}
 
@@ -424,23 +422,21 @@ if ( ! class_exists( 'B2C_Settings_Fields_Callbacks' ) ) {
 				esc_attr( __( 'Remove', 'all-in-one-utilities' ) ),
 			);
 
-			$args = wp_json_encode(
-				array(
-					$this->option_name . '_' . $id,
-					$this->option_name . '_' . $id . '_wrapper',
-					'.b2c_add_img_' . $id,
-					'.b2c_remove_img_' . $id,
-				)
+			$args = array(
+				$this->option_name . '_' . $id,
+				$this->option_name . '_' . $id . '_wrapper',
+				'.b2c_add_img_' . $id,
+				'.b2c_remove_img_' . $id,
 			);
 
-			$js_code = <<<IMG_JS
-				<script type="text/javascript">
+			printf(
+				'<script type="text/javascript">
 					jQuery( window ).load(function() {
-						app.videoSettingsfields( $args );
+						app.videoSettingsfields(%s);
 					});
-				</script>
-				IMG_JS;
-			echo $js_code; // phpcs:ignore WordPress.Security.EscapeOutput
+				</script>',
+				wp_json_encode( $args ),
+			);
 
 		}
 
