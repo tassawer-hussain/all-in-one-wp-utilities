@@ -136,11 +136,8 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 
 			wp_nonce_field( 'aiowpu-update-multiple-roles', 'aiowpu_multiple_roles_nonce' );
 
-			$posted_data = filter_input_array( INPUT_POST );
-
-			$roles          = aiowpu_get_editable_roles();
-			$user_roles     = isset( $user->roles ) ? $user->roles : null;
-			$selected_roles = isset( $posted_data['createuser'] ) ? $this->get_validated_roles_from_post() : array();
+			$roles      = aiowpu_get_editable_roles();
+			$user_roles = isset( $user->roles ) ? $user->roles : null;
 
 			include apply_filters( 'mdmr_checklist_template', plugin_dir_path( dirname( __FILE__ ) ) . 'templates/user-roles-checklist.php' );
 		}

@@ -93,7 +93,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 
 			$actions['update_username'] = "<a
 				class='update_username'
-				href='" . esc_url( admin_url( 'admin.php?page=aiowpu-update-username&update=' . $user_object->ID ) ) . "'>"
+				href='" . esc_url( wp_nonce_url( "admin.php?page=aiowpu-update-username&amp;update=$user_object->ID", 'aiowpu-update-username' ) ) . "'>"
 			. __( 'Update username', 'all-in-one-utilities' ) .
 			'</a>';
 
@@ -125,14 +125,11 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 		 */
 		public function aiowpu_update_username_page_cb() {
 
-			$_get = filter_input_array( INPUT_GET );
+			check_admin_referer( 'aiowpu-update-username' );
 
-			if ( isset( $_get['update'] ) && '' !== $_get['update'] && is_numeric( $_get['update'] ) ) {
+			if ( isset( $_GET['update'] ) && '' !== $_GET['update'] && is_numeric( $_GET['update'] ) ) {
 
-				$_post   = filter_input_array( INPUT_POST );
-				$_server = filter_input_array( INPUT_SERVER );
-
-				$user_id   = intval( $_get['update'] );
+				$user_id   = intval( $_GET['update'] );
 				$user_info = get_userdata( $user_id );
 
 				include apply_filters( 'aiowpu_update_username', plugin_dir_path( __FILE__ ) . 'partials/aiowpu-update-username.php' );
@@ -181,10 +178,12 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 				return false;
 			}
 
-			$_get = filter_input_array( INPUT_GET );
+			if ( isset( $_GET['update'] ) && '' !== $_GET['update'] && is_numeric( $_GET['update'] ) ) {
+				$update_user_id = intval( $_GET['update'] );
+			}
 
 			// Run the query to update the username.
-			$query_result = $this->aiowpu_run_query_to_update_username( intval( $_get['update'] ), $name );
+			$query_result = $this->aiowpu_run_query_to_update_username( $update_user_id, $name );
 
 			// Check the SQL update query result.
 			if ( ! $query_result ) {
@@ -199,7 +198,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			}
 
 			// Call the email notification function.
-			$is_email_sent = $this->aiowpu_send_update_username_notification_to_user( $_get['update'] );
+			$is_email_sent = $this->aiowpu_send_update_username_notification_to_user( $update_user_id );
 
 			if ( $is_email_sent ) {
 				$this->success_msg = __( 'Username Updated! Mail Sent to the user about username change.', 'all-in-one-utilities' );

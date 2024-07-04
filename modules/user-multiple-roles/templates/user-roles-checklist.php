@@ -33,8 +33,6 @@
 						<?php
 						if ( ! is_null( $user_roles ) ) : // Edit user page.
 							checked( in_array( $name, $user_roles, true ) );
-						elseif ( ! empty( $selected_roles ) ) : // Add new user page.
-							checked( in_array( $name, $selected_roles, true ) );
 						endif;
 						?>
 					/>

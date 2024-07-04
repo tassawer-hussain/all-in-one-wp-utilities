@@ -37,7 +37,7 @@
 
 </div>
 
-<form method="post" id="user_udate" action="<?php echo esc_url( $_server['REQUEST_URI'] ); ?>">
+<form method="post" id="user_udate" action="<?php echo isset( $_SERVER['REQUEST_URI'] ) ? esc_url( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) ) : ''; ?>">
 
 	<table class="form-table">
 
@@ -53,8 +53,7 @@
 					type="text"
 					name="user_login"
 					class="regular-text"
-					id="user_login"
-					value="<?php echo ( ! empty( $_post['user_login'] ) ) ? esc_attr( $name ) : ''; ?>"/>
+					id="user_login" />
 			</td>
 		</tr>
 
@@ -67,7 +66,7 @@
 						name="user_notification"
 						id="user_notification"
 						value="yes"
-						<?php echo isset( $_post['user_notification'] ) ? esc_attr( "checked='checked'" ) : ''; ?>/>
+						checked="checked" />
 					<?php echo esc_html( __( 'Send the user an email about their updated username.', 'all-in-one-utilities' ) ); ?>
 				</label>
 			</td>
