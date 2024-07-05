@@ -106,8 +106,6 @@ function aiowpu_update_roles( $user_id = 0, $roles = array() ) {
  */
 function aiowpu_can_update_roles() {
 
-	do_action( 'aiowpu_before_can_update_roles' );
-
 	if (
 		is_network_admin() ||
 		! current_user_can( 'promote_users' ) ||
