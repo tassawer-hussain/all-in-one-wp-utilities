@@ -222,15 +222,35 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 
 			global $wpdb;
 
-			$result = $wpdb->update( // phpcs:ignore
-				$wpdb->prefix . 'users', // table.
-				array(
-					'user_login'   => $name,
-					'display_name' => $name,
-				), // data.
-				array( 'id' => $id ), // where.
-				array( '%s', '%s' ), // data format.
-				array( '%d' ) // where format.
+			// New data to update.
+			$new_data = array(
+				'user_login'   => $name,
+				'display_name' => $name,
+			);
+
+			// Where condition to specify the user to update.
+			$where = array(
+				'ID' => $id,
+			);
+
+			// Format of the data to update (string, integer, etc.).
+			$format = array(
+				'%s', // Format for user_login.
+				'%s', // Format for display_name.
+			);
+
+			// Format of the where condition.
+			$where_format = array(
+				'%d', // Format for ID.
+			);
+
+			// db call ok; no-cache ok.
+			$result = $wpdb->update(
+				$wpdb->users, // table.
+				$new_data,
+				$where,
+				$format,
+				$where_format
 			);
 
 			return $result;

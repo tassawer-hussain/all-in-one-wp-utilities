@@ -11,6 +11,9 @@
  * @subpackage 2ByteCode/Settings_Api/partials
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
@@ -36,6 +39,6 @@
 		?>
 	</h2>
 
-	<?php do_action( 'b2c_settings_api_sections' ); ?>
+	<?php do_action( 'bytecode_settings_api_sections' ); ?>
 
 </div>

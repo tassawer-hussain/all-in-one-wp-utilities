@@ -9,6 +9,9 @@
  * @subpackage All_In_One_Utilities/admin
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -127,13 +130,13 @@ class All_In_One_Wp_Utilities_Admin {
 		$page_link = aiowpu_get_page_url( $this->menu_slug, 'admin' );
 
 		// Check wpnonce.
-		if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'] ) ) { // phpcs:ignore Input var ok; sanitization ok.
+		if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ) ) ) {
 			return;
 		}
 
 		// Filter modules.
-		if ( isset( $_REQUEST['filter'] ) ) { // Input var ok.
-			$filter = sanitize_key( $_REQUEST['filter'] ); // Input var ok.
+		if ( isset( $_REQUEST['filter'] ) ) {
+			$filter = sanitize_key( $_REQUEST['filter'] );
 		}
 
 		// Output Message.
@@ -151,7 +154,7 @@ class All_In_One_Wp_Utilities_Admin {
 	public function handler_actions() {
 
 		// Check wpnonce.
-		if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'] ) ) { // phpcs:ignore Input var ok; sanitization ok.
+		if ( ! isset( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ) ) ) {
 			return;
 		}
 

@@ -8,6 +8,9 @@
  * @since      1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 /**
  * This function return unique slug name to refer to this menu by.
  *

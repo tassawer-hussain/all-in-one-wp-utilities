@@ -147,34 +147,31 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 		 */
 		public function get_validated_roles_from_post() {
 
-			$posted_data = filter_input_array( INPUT_POST );
-
-			$roles = ( isset( $posted_data['aiowpu_multiple_roles'] ) && is_array( $posted_data['aiowpu_multiple_roles'] ) ) ? $posted_data['aiowpu_multiple_roles'] : array();
-
-			$editable_roles = aiowpu_get_editable_roles();
-			$ret_roles      = array();
-
-			foreach ( $roles as $role ) {
-				if ( in_array( $role, $editable_roles, true ) ) {
-					$ret_roles[] = $role;
-				}
+			if ( ! aiowpu_can_update_roles() ) {
+				return;
 			}
 
-			return $roles;
-		}
+			// The checklist is not always rendered when this method is triggered on 'profile_update' (i.e. when updating a profile programmatically),
+			// First check that the 'aiowpu_multiple_roles_nonce' is available, else bail. If we continue to process and update_roles(), all user roles will be lost.
+			// We check for 'aiowpu_multiple_roles_nonce' rather than 'aiowpu_multiple_roles' as this input/variable will be empty if all role inputs are left unchecked.
+			if ( isset( $_POST['aiowpu_multiple_roles_nonce'] )
+				&& wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['aiowpu_multiple_roles_nonce'] ) ), 'aiowpu-update-multiple-roles' ) ) {
+				$roles = ( isset( $_POST['aiowpu_multiple_roles'] ) ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['aiowpu_multiple_roles'] ) ) : array();
 
-		/**
-		 * Check if the aiowpu_multiple_roles_nonce is set and valid for the given action.
-		 *
-		 * @param string $action The nonce action.
-		 * @return bool
-		 */
-		public function is_nonce_valid( $action ) {
+				$editable_roles = aiowpu_get_editable_roles();
+				$ret_roles      = array();
 
-			$posted_data = filter_input_array( INPUT_POST );
+				foreach ( $roles as $role ) {
+					if ( in_array( $role, $editable_roles, true ) ) {
+						$ret_roles[] = $role;
+					}
+				}
 
-			return isset( $posted_data['aiowpu_multiple_roles_nonce'] )
-			&& wp_verify_nonce( $posted_data['aiowpu_multiple_roles_nonce'], 'aiowpu-update-multiple-roles' );
+				return $roles;
+			} else {
+				return false;
+			}
+
 		}
 
 		/**
@@ -184,18 +181,6 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 		 * @param int $user_id The user ID whose roles might get updated.
 		 */
 		public function aiowpu_process_user_multiple_roles( $user_id ) {
-
-			// The checklist is not always rendered when this method is triggered on 'profile_update' (i.e. when updating a profile programmatically),
-			// First check that the 'aiowpu_multiple_roles_nonce' is available, else bail. If we continue to process and update_roles(), all user roles will be lost.
-			// We check for 'aiowpu_multiple_roles_nonce' rather than 'aiowpu_multiple_roles' as this input/variable will be empty if all role inputs are left unchecked.
-
-			if ( ! $this->is_nonce_valid( 'aiowpu-update-multiple-roles' ) ) {
-				return;
-			}
-
-			if ( ! aiowpu_can_update_roles() ) {
-				return;
-			}
 
 			$new_roles = $this->get_validated_roles_from_post();
 
@@ -232,14 +217,6 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 		 */
 		public function aiowpu_add_roles_in_signup_meta_recently( $meta, $domain, $path, $title, $user, $user_email, $key ) {
 
-			if ( ! $this->is_nonce_valid( 'aiowpu-update-multiple-roles' ) ) {
-				return;
-			}
-
-			if ( ! aiowpu_can_update_roles() ) {
-				return;
-			}
-
 			$new_roles = $this->get_validated_roles_from_post();
 
 			if ( empty( $new_roles ) ) {
@@ -262,14 +239,6 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 		 */
 		public function aiowpu_add_roles_in_signup_meta( $user, $user_email, $key, $meta ) {
 
-			if ( ! $this->is_nonce_valid( 'aiowpu-update-multiple-roles' ) ) {
-				return;
-			}
-
-			if ( ! aiowpu_can_update_roles() ) {
-				return;
-			}
-
 			$new_roles = $this->get_validated_roles_from_post();
 			if ( empty( $new_roles ) ) {
 				return;
@@ -280,7 +249,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			// Get user signup
 			// Suppress errors in case the table doesn't exist.
 			$suppress = $wpdb->suppress_errors();
-			$signup   = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->signups} WHERE user_email = %s", $user_email ) ); // phpcs:ignore
+			$signup   = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->signups} WHERE user_email = %s", $user_email ) ); // db call ok; no-cache ok.
 
 			$wpdb->suppress_errors( $suppress );
 
@@ -298,7 +267,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			$where_format = array( '%d' );
 			$formats      = array( '%s' );
 			$fields       = array( 'meta' => $meta );
-			$result       = $wpdb->update( $wpdb->signups, $fields, $where, $formats, $where_format ); // phpcs:ignore
+			$result       = $wpdb->update( $wpdb->signups, $fields, $where, $formats, $where_format );  // db call ok; no-cache ok.
 
 			// Check for errors.
 			if ( empty( $result ) && ! empty( $wpdb->last_error ) ) {

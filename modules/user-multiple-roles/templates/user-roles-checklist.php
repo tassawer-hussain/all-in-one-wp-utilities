@@ -9,6 +9,10 @@
  * @subpackage All_In_One_Utilities/modules/user-multiple-roles/templates
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 <h3><?php esc_html_e( 'Permissions', 'all-in-one-utilities' ); ?></h3>
 

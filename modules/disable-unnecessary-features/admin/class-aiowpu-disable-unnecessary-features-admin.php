@@ -265,7 +265,11 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 
 			global $current_screen;
 
-			if ( ! empty( $current_screen->id ) && strpos( $current_screen->id, 'aiowp-utilities_page_aiowpu_settings' ) !== false ) {
+			if ( ! empty( $current_screen->id )
+				&& (
+					strpos( $current_screen->id, 'all-in-one-utilities_page_aiowpu_settings' ) !== false
+					|| strpos( $current_screen->id, 'toplevel_page_aiowpu_manager' ) !== false )
+					) {
 				return sprintf(
 					'%s <a href="%s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> %s',
 					esc_html__( 'Show your support with a', 'all-in-one-utilities' ),
@@ -304,7 +308,9 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 
 				if ( ! is_admin() ) {
 					// default URL format.
-					if ( preg_match( '/author=([0-9]*)/i', $_SERVER['QUERY_STRING'] ) ) { // phpcs:ignore
+					if ( isset( $_SERVER['QUERY_STRING'] )
+						&& ! empty( $_SERVER['QUERY_STRING'] )
+						&& preg_match( '/author=([0-9]*)/i', sanitize_text_field( wp_unslash( $_SERVER['QUERY_STRING'] ) ) ) ) {
 						die();
 					}
 
@@ -553,7 +559,6 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 							return;
 						}
 
-						// phpcs:ignore
 						if ( isset( $_GET ['feed'] ) ) {
 							wp_safe_redirect( esc_url_raw( remove_query_arg( 'feed' ) ), 301 );
 							exit();

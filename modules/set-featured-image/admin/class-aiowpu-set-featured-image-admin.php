@@ -167,7 +167,7 @@ if ( class_exists( 'Aiowpu_Module_Admin' ) ) {
 			$rm_btn_class = 'button button-disabled';
 
 			if ( ! empty( $value ) ) {
-				echo $this->preview_featured_image( $value ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo wp_kses_post( $this->preview_featured_image( $value ) );
 				$rm_btn_class = 'button';
 			}
 

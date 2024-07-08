@@ -13,10 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Inlcude Class -> B2C_Settings_Fields_Callbacks.
-require_once dirname( __FILE__ ) . '/classes/class-b2c-settings-fields-callbacks.php';
+// Inlcude Class -> Bytecode_Settings_Fields_Callbacks.
+require_once dirname( __FILE__ ) . '/classes/class-bytecode-settings-fields-callbacks.php';
 
-if ( ! class_exists( 'Settings_API_2BC' ) ) {
+if ( ! class_exists( 'ByteCode_Settings_API' ) ) {
 	/**
 	 * WordPress Settings API.
 	 *
@@ -26,7 +26,7 @@ if ( ! class_exists( 'Settings_API_2BC' ) ) {
 	 * @subpackage 2ByteCode/Settings_Api
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
-	class Settings_API_2BC {
+	class ByteCode_Settings_API {
 
 		/**
 		 * The ID of this plugin.
@@ -162,7 +162,7 @@ if ( ! class_exists( 'Settings_API_2BC' ) ) {
 			/**
 			 * Filter -> For Adding tabs
 			 */
-			$this->settings_tabs = apply_filters( 'b2c_settings_api_tabs', $this->settings_tabs );
+			$this->settings_tabs = apply_filters( 'bytecode_settings_api_tabs', $this->settings_tabs );
 
 			require_once dirname( __FILE__ ) . '/partials/admin-menu-settings-api-2bc.php';
 		}

@@ -45,20 +45,20 @@ define( 'AIOWPU_CORE_PATH', plugin_dir_path( __FILE__ ) . 'core/' );
  *
  * @param bool $networkwide The networkwide.
  */
-function activate_all_in_one_wp_utilities( $networkwide ) {
+function aiowpu_activate_all_in_one_wp_utilities( $networkwide ) {
 	do_action( 'aiowpu_plugin_activation', $networkwide );
 }
-register_activation_hook( __FILE__, 'activate_all_in_one_wp_utilities' );
+register_activation_hook( __FILE__, 'aiowpu_activate_all_in_one_wp_utilities' );
 
 /**
  * Plugin Deactivation.
  *
  * @param bool $networkwide The networkwide.
  */
-function deactivate_all_in_one_wp_utilities( $networkwide ) {
+function aiowpu_deactivate_all_in_one_wp_utilities( $networkwide ) {
 	do_action( 'aiowpu_plugin_deactivation', $networkwide );
 }
-register_deactivation_hook( __FILE__, 'deactivate_all_in_one_wp_utilities' );
+register_deactivation_hook( __FILE__, 'aiowpu_deactivate_all_in_one_wp_utilities' );
 
 /**
  * Language

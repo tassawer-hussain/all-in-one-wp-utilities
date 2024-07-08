@@ -6,6 +6,10 @@
  * @subpackage All_In_One_Utilities/modules/disable-unnecessary-features/helper
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Return the database type.
  *
@@ -18,11 +22,12 @@ function aiowpu_database_type() {
 	if ( false === $dbtype ) {
 
 		global $wpdb;
-		$vers = $wpdb->get_var( 'SELECT VERSION() as mysql_version' ); // phpcs:ignore
+		$vers = $wpdb->get_var( 'SELECT VERSION() as mysql_version' ); // db call ok; no-cache ok.
 		if ( stripos( $vers, 'MARIA' ) !== false ) {
 			$dbtype = 'MARIA';
+		} else {
+			$dbtype = 'MYSQL';
 		}
-		$dbtype = 'MYSQL';
 
 		// expire after 1 week.
 		set_transient( 'aiowpu_database_type', $dbtype, 604800 );
@@ -45,7 +50,7 @@ function aiowpu_database_version() {
 	if ( false === $dbversion ) {
 
 		global $wpdb;
-		$vers      = $wpdb->get_var( 'SELECT VERSION() as mysql_version' ); // phpcs:ignore
+		$vers      = $wpdb->get_var( 'SELECT VERSION() as mysql_version' ); // db call ok; no-cache ok.
 		$dbversion = explode( '-', $vers ) [0]; // trim any extra information.
 
 		set_transient( 'aiowpu_database_version', $dbversion, 604800 ); // expire after 1 week.

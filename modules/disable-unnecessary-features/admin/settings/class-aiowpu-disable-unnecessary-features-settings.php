@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
  * @subpackage All_In_One_Utilities/modules/disable-unnecessary-features
  * @author     2ByteCode <support@2bytecode.com>
  */
-class Aiowpu_Disable_Unnecessary_Features_Settings extends B2C_Settings_Fields_Callbacks {
+class Aiowpu_Disable_Unnecessary_Features_Settings extends Bytecode_Settings_Fields_Callbacks {
 
 	/**
 	 * Settings options group name.
@@ -75,10 +75,10 @@ class Aiowpu_Disable_Unnecessary_Features_Settings extends B2C_Settings_Fields_C
 		parent::__construct();
 
 		// Filter -> Add Settings Tab.
-		add_filter( 'b2c_settings_api_tabs', array( $this, 'b2c_add_settings_tab' ), 10 );
+		add_filter( 'bytecode_settings_api_tabs', array( $this, 'b2c_add_settings_tab' ), 10 );
 
 		// Action -> Add Settings Section.
-		add_action( 'b2c_settings_api_sections', array( $this, 'b2c_add_settings_section' ), 11 );
+		add_action( 'bytecode_settings_api_sections', array( $this, 'b2c_add_settings_section' ), 11 );
 
 		// Register Settings Fields.
 		add_action( 'admin_init', array( $this, 'b2c_register_setting_fields' ) );

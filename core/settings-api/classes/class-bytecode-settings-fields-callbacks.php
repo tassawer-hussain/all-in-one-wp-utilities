@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'B2C_Settings_Fields_Callbacks' ) ) {
+if ( ! class_exists( 'Bytecode_Settings_Fields_Callbacks' ) ) {
 	/**
 	 * WordPress Settings API Callbacks Class.
 	 *
@@ -23,7 +23,7 @@ if ( ! class_exists( 'B2C_Settings_Fields_Callbacks' ) ) {
 	 * @subpackage 2ByteCode/Settings_Api
 	 * @author     2ByteCode <support@2bytecode.com>
 	 */
-	abstract class B2C_Settings_Fields_Callbacks {
+	abstract class Bytecode_Settings_Fields_Callbacks {
 
 		/**
 		 * Option group name of the settings.

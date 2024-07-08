@@ -8,6 +8,10 @@
  * @subpackage All_In_One_Utilities/modules/user-multiple-roles/templates
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 <div class="aiowpu-multiple-roles">
 

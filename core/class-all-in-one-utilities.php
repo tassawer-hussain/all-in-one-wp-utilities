@@ -108,8 +108,8 @@ if ( ! class_exists( 'All_In_One_Utilities' ) ) {
 
 			// Include 2ByteCode Setting API Library.
 			require_once AIOWPU_CORE_PATH . 'class-aiowpu-default-settings-options.php';
-			require_once AIOWPU_CORE_PATH . 'settings-api/classes/class-b2c-settings-fields-callbacks.php';
-			require_once AIOWPU_CORE_PATH . 'settings-api/class-settings-api-2bc.php';
+			require_once AIOWPU_CORE_PATH . 'settings-api/classes/class-bytecode-settings-fields-callbacks.php';
+			require_once AIOWPU_CORE_PATH . 'settings-api/class-bytecode-settings-api.php';
 
 			// The class responsible for defining all actions that occur in the admin area.
 			require_once AIOWPU_PATH . 'admin/class-all-in-one-wp-utilities-admin.php';
@@ -141,7 +141,7 @@ if ( ! class_exists( 'All_In_One_Utilities' ) ) {
 			$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_menu_page' );
 
 			// Create an instance of settings API class.
-			$setting_menu = new Settings_API_2BC( $this->get_plugin_name(), $this->get_version(), 'aiowpu_settings', esc_html__( 'All-in-One Utilities Settings', 'all-in-one-utilities' ), esc_html__( 'Settings', 'all-in-one-utilities' ) );
+			$setting_menu = new ByteCode_Settings_API( $this->get_plugin_name(), $this->get_version(), 'aiowpu_settings', esc_html__( 'All-in-One Utilities Settings', 'all-in-one-utilities' ), esc_html__( 'Settings', 'all-in-one-utilities' ) );
 			$this->loader->add_action( 'admin_enqueue_scripts', $setting_menu, 'enqueue_styles' );
 			$this->loader->add_action( 'admin_enqueue_scripts', $setting_menu, 'enqueue_scripts' );
 			$this->loader->add_action( 'admin_menu', $setting_menu, 'b2c_settings_admin_menu' );

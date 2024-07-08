@@ -9,6 +9,10 @@
  * @subpackage All_In_One_Utilities/includes
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Register all actions and filters for the plugin.
  *

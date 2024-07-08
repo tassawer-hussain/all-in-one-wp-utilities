@@ -9,6 +9,10 @@
  * @subpackage All_In_One_Utilities/public
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * The public-facing functionality of the plugin.
  *

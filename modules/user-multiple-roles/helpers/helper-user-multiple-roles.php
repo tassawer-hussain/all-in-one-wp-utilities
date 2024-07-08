@@ -6,6 +6,10 @@
  * @subpackage All_In_One_Utilities/modules/user-multiple-roles/helper
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Grab all WordPress roles.
  *
